@@ -1,0 +1,6 @@
+---
+- name: Smoke test
+  hosts: localhost
+  
+  roles:
+    - role: smoke_test

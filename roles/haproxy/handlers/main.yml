@@ -7,4 +7,4 @@
 - name: Enable HAProxy
   service:
     name: haproxy
-    state: started
+    enabled: yes

@@ -1,0 +1,16 @@
+---
+- name: Verify frontends links
+  uri:
+    url: "http://{{ item }}.{{ GUID }}.example.opentlc.com"
+    return_content: yes
+  loop: "{{ groups['frontends'] | list }}"
+  register: url_result
+
+- name: Check expected content
+  assert:
+    that:
+      - smoke_test_string in item.content
+    fail_msg: "Failed smoke test: incorrect content in {{ item.url }}"
+    success_msg: "Passed smoke test: correct content in {{ item.url }}"
+    quiet: yes
+  loop: "{{ url_result.results | list }}"
