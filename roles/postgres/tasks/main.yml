@@ -3,15 +3,15 @@
   package:
     name: "{{ postgres_packages }}"
     state: latest
-  notify:
-    - Start postgres
-    - Enable postgres
 
-- name: Confirm if {{ postgres_data_dir }} already exists
+- name: Confirm if {{ postgres_data_file }} already exists
   stat:
-    path: "{{ postgres_data_dir }}"
+    path: "{{ postgres_data_file }}"
   register: out
 
 - name: Initilize postgres
   command: postgresql-setup initdb
   when: not out.stat.exists
+  notify:
+    - Start postgres
+    - Enable postgres
