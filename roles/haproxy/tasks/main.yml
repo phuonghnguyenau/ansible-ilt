@@ -3,6 +3,9 @@
   package:
     name: "{{ haproxy_packages }}"
     state: latest
+  notify:
+    - Restart HAProxy
+    - Enable HAProxy
 
 - name: Configure haproxy
   template:

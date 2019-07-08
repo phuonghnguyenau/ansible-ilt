@@ -12,7 +12,6 @@
       - postgresql-server
 
   tasks:
-
     - name: reverse the enabling of sudo without tty for some ansible commands
       replace:
         path: /etc/sudoers
@@ -30,8 +29,7 @@
         name: "{{ three_tier_packages }}"
         state: absent
 
-    - name: Remove index.html
+    - name: Remove /usr/share/tomcat/webapps/ROOT/index.html
       file:
-        path: /tmp/index.html
+        path: /usr/share/tomcat/webapps/ROOT/index.html
         state: absent
-...

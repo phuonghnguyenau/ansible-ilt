@@ -3,6 +3,9 @@
   package:
     name: "{{ postgres_packages }}"
     state: latest
+  notify:
+    - Start postgres
+    - Enable postgres
 
 - name: Confirm if {{ postgres_data_file }} already exists
   stat:

@@ -3,11 +3,17 @@
   package:
     name: "{{ tomcat_packages }}"
     state: latest
+  notify:
+    - Start tomcat services
+    - Enable tomcat services
 
 - name: Create ansible tomcat directory
   file:
     path: "{{ tomcat_dir }}"
     state: directory
+  notify:
+    - Start tomcat services
+    - Enable tomcat services
 
 - name: Copy static index.html to tomcat webapps/ansible/index.html
   template:
