@@ -1,0 +1,10 @@
+---
+tomcat_packages:
+  - tomcat
+  - httpd
+
+tomcat_services:
+  - tomcat
+  - httpd
+
+tomcat_dir: /usr/share/tomcat/webapps/ROOT

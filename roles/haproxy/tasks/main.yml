@@ -1,0 +1,13 @@
+---
+- name: Install packages for HAProxy
+  package:
+    name: "{{ haproxy_packages }}"
+    state: latest
+
+- name: Configure haproxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify:
+    - Restart HAProxy
+    - Enable HAProxy
