@@ -1,0 +1,6 @@
+---
+- name: Build OSP instances
+  hosts: jumpbox
+
+  roles:
+    - role: osp_instances

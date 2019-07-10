@@ -1,0 +1,69 @@
+---
+osp_sg_apps: apps
+osp_sg_frontend: frontend
+osp_sg_db: db
+osp_flavor: m2.small
+osp_image: rhel-guest
+osp_external_network: ext_network
+osp_internal_network: int_network
+osp_key_name: ansible_ssh
+osp_userdata: |
+  {%- raw -%}#!/bin/bash
+  curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+  cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+  curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+  cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+  {%- endraw -%}
+
+osp_instances_list:
+  - name: app1
+    meta: 
+      group: apps
+      deployment_name: QA
+    flavor: "{{ osp_flavor }}"
+    key_name: "{{ osp_key_name }}"
+    nics: 
+      - net-name: "{{ osp_internal_network }}"
+    floating_ip_pools: "{{ osp_external_network }}"
+    image: "{{ osp_image }}"
+    security_groups: 
+      - "{{ osp_sg_frontend }}"
+
+  - name: app2
+    meta: 
+      group: apps
+      deployment_name: QA
+    flavor: "{{ osp_flavor }}"
+    key_name: "{{ osp_key_name }}"
+    nics: 
+      - net-name: "{{ osp_internal_network }}"
+    floating_ip_pools: "{{ osp_external_network }}"
+    image: "{{ osp_image }}"
+    security_groups: 
+      - "{{ osp_sg_frontend }}"
+
+  - name: db
+    meta: 
+      group: appdbs
+      deployment_name: QA
+    flavor: "{{ osp_flavor }}"
+    key_name: "{{ osp_key_name }}"
+    nics: 
+      - net-name: "{{ osp_internal_network }}"
+    floating_ip_pools: "{{ osp_external_network }}"
+    image: "{{ osp_image }}"
+    security_groups: 
+      - "{{ osp_sg_frontend }}"
+
+  - name: frontend
+    meta: 
+      group: frontends
+      deployment_name: QA
+    flavor: "{{ osp_flavor }}"
+    key_name: "{{ osp_key_name }}"
+    nics: 
+      - net-name: "{{ osp_internal_network }}"
+    floating_ip_pools: "{{ osp_external_network }}"
+    image: "{{ osp_image }}"
+    security_groups: 
+      - "{{ osp_sg_frontend }}"
