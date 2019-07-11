@@ -1,0 +1,22 @@
+---
+- name: Install {{ package_name }}
+  win_chocolatey:
+    name: "{{ package_name }}"
+    package_params: "{{ parameters }}"
+    state: present
+
+- name: Enable {{ service_name }}
+  win_service:
+    name: "{{ service_name }}"
+    state: started
+    start_mode: auto
+
+- name: Create firewall rule for {{ service_name }}
+  win_firewall_rule:
+    name: "{{ service_name }}"
+    enabled: yes
+    action: allow
+    direction: in
+    state: present
+    remoteport: "{{ local_port }}"
+    protocol: "{{ protocol_name }}"
