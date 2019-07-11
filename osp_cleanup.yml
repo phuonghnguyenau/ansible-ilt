@@ -1,0 +1,19 @@
+---
+- name: Cleanup for OpenStack
+  hosts: jumpbox
+
+  vars:
+    osp_instances_list:
+      - app1
+      - app2
+      - db
+      - frontend
+
+  tasks:
+    - name: Delete OpenStack instances
+      os_server:
+        name: "{{ item }}"
+        state: absent
+        cloud: ospcloud
+        delete_fip: yes
+      loop: "{{ osp_instances_list }}"

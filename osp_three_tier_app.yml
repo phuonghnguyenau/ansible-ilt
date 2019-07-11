@@ -1,0 +1,27 @@
+---
+- name: Build OSP instances
+  hosts: jumpbox
+
+  roles:
+    - role: osp_instances
+
+- name: Deploy haproxy
+  hosts: frontends
+  become: true
+
+  roles:
+    - role: haproxy
+
+- name: Deploy tomcat
+  hosts: apps
+  become: true
+
+  roles:
+    - role: tomcat
+
+- name: Deploy postgres
+  hosts: appdbs
+  become: true
+  
+  roles:
+    - role: postgres

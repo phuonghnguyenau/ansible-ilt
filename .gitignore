@@ -1,3 +1,4 @@
 */env
 *.pem
 .vault-file
+.DS_Store

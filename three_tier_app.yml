@@ -1,11 +1,4 @@
 ---
-- name: Set up repo
-  hosts: all
-  become: true
-
-  roles:
-    - role: common
-
 - name: Deploy haproxy
   hosts: frontends
   become: true
@@ -21,8 +14,8 @@
     - role: tomcat
 
 - name: Deploy postgres
-  become: true
   hosts: appdbs
+  become: true
   
   roles:
     - role: postgres
