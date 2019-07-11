@@ -2,28 +2,28 @@ user_info:
   - name: james
     firstname: James
     surname: Jockey
-    password: wRP%g3bqs8O^76h
+    password: wRLP%g3+bq-s8O^76h
     group:
       - group_name: dev
         group_scope: domainlocal
   - name: bill
     firstname: Bill
     surname: Gates
-    password: wRP%g3bqs8O^76h
+    password: wRLP%g3+bq-s8O^76h
     group:
       - group_name: dev
         group_scope: domainlocal
   - name: mickey
     firstname: Mickey
     surname: Mouse
-    password: wRP%g3bqs8O^76h
+    password: wRLP%g3+bq-s8O^76h
     group:
       - group_name: qa
         group_scope: domainlocal
   - name: donald
     firstname: Donald
     surname: Duck
-    password: wRP%g3bqs8O^76h
+    password: wRLP%g3+bq-s8O^76h
     group:
       - group_name: qa
         group_scope: domainlocal
