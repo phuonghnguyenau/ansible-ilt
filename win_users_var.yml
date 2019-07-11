@@ -2,28 +2,28 @@ user_info:
   - name: james
     firstname: James
     surname: Jockey
-    password: redhat@123
+    password: redhaT@123IBM
     group:
       - group_name: dev
         group_scope: domainlocal
   - name: bill
     firstname: Bill
     surname: Gates
-    password: redhat@123
+    password: redhaT@123IBM
     group:
       - group_name: dev
         group_scope: domainlocal
   - name: mickey
     firstname: Mickey
     surname: Mouse
-    password: redhat@123
+    password: redhaT@123IBM
     group:
       - group_name: qa
         group_scope: domainlocal
   - name: donald
     firstname: Donald
     surname: Duck
-    password: redhat@123
+    password: redhaT@123IBM
     group:
       - group_name: qa
         group_scope: domainlocal
