@@ -1,0 +1,8 @@
+---
+- name: Deploy OpenSSH on Windows
+  hosts: windows
+
+  vars_files: ssh_var.yml
+
+  roles:
+    - role: win_service_config
