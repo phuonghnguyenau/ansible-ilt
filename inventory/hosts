@@ -1,9 +1,2 @@
-[frontends]
-frontend1.ebcb.internal ansible_ssh_host=frontend1.ebcb.example.opentlc.com
-
-[apps]
-app1.ebcb.internal ansible_ssh_host=app1.ebcb.example.opentlc.com
-app2.ebcb.internal ansible_ssh_host=app2.ebcb.example.opentlc.com
-
-[appdbs]
-appdb1.ebcb.internal ansible_ssh_host=appdb1.ebcb.example.opentlc.com
+[jumpbox]
+workstation

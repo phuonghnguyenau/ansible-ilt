@@ -20,6 +20,7 @@ osp_instances_list:
     meta: 
       group: apps
       deployment_name: QA
+      ansible_user: cloud-user
     flavor: "{{ osp_flavor }}"
     key_name: "{{ osp_key_name }}"
     nics: 
@@ -33,6 +34,7 @@ osp_instances_list:
     meta: 
       group: apps
       deployment_name: QA
+      ansible_user: cloud-user
     flavor: "{{ osp_flavor }}"
     key_name: "{{ osp_key_name }}"
     nics: 
@@ -46,6 +48,7 @@ osp_instances_list:
     meta: 
       group: appdbs
       deployment_name: QA
+      ansible_user: cloud-user
     flavor: "{{ osp_flavor }}"
     key_name: "{{ osp_key_name }}"
     nics: 
@@ -59,6 +62,7 @@ osp_instances_list:
     meta: 
       group: frontends
       deployment_name: QA
+      ansible_user: cloud-user
     flavor: "{{ osp_flavor }}"
     key_name: "{{ osp_key_name }}"
     nics: 

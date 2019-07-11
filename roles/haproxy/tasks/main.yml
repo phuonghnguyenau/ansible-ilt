@@ -1,4 +1,10 @@
 ---
+- name: Enable repos
+  copy:
+    src: open_three-tier-app.repo
+    dest: /etc/yum.repos.d/open_three-tier-app.repo
+    mode: 0644
+
 - name: Install packages for HAProxy
   package:
     name: "{{ haproxy_packages }}"
