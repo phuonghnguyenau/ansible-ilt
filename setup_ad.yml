@@ -1,0 +1,6 @@
+---
+- name: Setup Windows AD
+  hosts: windows
+
+  roles:
+    - role: win_ad_install
