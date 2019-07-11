@@ -1,0 +1,10 @@
+---
+- name: Create Windows Domain Users
+  win_domain_user:
+    name: "{{ item.name }}"
+    domain_password: "{{ item.password }}"
+    firstname: "{{ item.firstname }}"
+    surname: "{{ item.surname }}"
+    groups: "{{ item.group }}"
+    state: present
+  loop: "{{ user_info }}"
